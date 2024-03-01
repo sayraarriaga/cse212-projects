@@ -1,3 +1,7 @@
+using System.Globalization;
+using System.Reflection.Metadata.Ecma335;
+using System.Security.Cryptography.X509Certificates;
+
 public static class ArraysTester {
     /// <summary>
     /// Entry point for the tests
@@ -39,7 +43,20 @@ public static class ArraysTester {
         // step by step before you write the code. The plan should be clear enough that it could
         // be implemented by another person.
 
-        return new double[0]; // replace this return statement with your own
+        //1-create the array "results" of type double, using the length parameter as the length of the array.
+        //2- create a loop for the Array "results" declaring the variable double "i", and using as condition the lenght of the array "results".
+        //3- Add the value of "i" tot he "results" array
+        //4- find the multiples with a mathemathical operation, adding 1 to "1" to star with number 1 (because the value of i was set as 0), then multiplying it by "number"
+        //5- Return the array "results"
+        //6- i had to fix the problem "(cs0266) cannot implicity convert type 'double' to 'int'". Acordding to the Microsoft documentation, using an explicit conversion "(int)" before the "i" in step 3.
+        double[] results = new double[length];
+        for (double i=0; i<results.Length; i++){
+             results[(int)i] = (i+1 * number);
+           
+           
+       }
+
+        return results; // replace this return statement with your own
     }
     
     /// <summary>
@@ -56,6 +73,13 @@ public static class ArraysTester {
         // Remember: Using comments in your program, write down your process for solving this problem
         // step by step before you write the code. The plan should be clear enough that it could
         // be implemented by another person.
+            for (int i=0; i<data.Count; ++i){
+            data.Reverse(amount, 8);
+            
+            }
+        
+     
+        
 
     }
 }
