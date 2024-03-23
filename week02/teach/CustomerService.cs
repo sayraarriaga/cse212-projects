@@ -13,7 +13,12 @@ public class CustomerService {
         // Test 1
         // Scenario: 
         // Expected Result: 
+        
         Console.WriteLine("Test 1");
+        var service = new CustomerService(4);
+        service.AddNewCustomer();
+        service.ServeCustomer();
+
 
         // Defect(s) Found: 
 
@@ -23,6 +28,13 @@ public class CustomerService {
         // Scenario: 
         // Expected Result: 
         Console.WriteLine("Test 2");
+        service = new CustomerService(4);
+        service.AddNewCustomer();
+        service.AddNewCustomer();
+        Console.WriteLine($"Before serving customers: {service}");
+        service.ServeCustomer();
+        service.ServeCustomer();
+        Console.WriteLine($"After serving customers: {service}");
 
         // Defect(s) Found: 
 

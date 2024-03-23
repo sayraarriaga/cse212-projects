@@ -2,7 +2,7 @@ using System.Text.Json;
 
 public static class SetsAndMapsTester {
     public static void Run() {
-        // Problem 1: Find Pairs with Sets
+        // Problem 1: Find Pairs with Sets.
         Console.WriteLine("\n=========== Finding Pairs TESTS ===========");
         DisplayPairs(new[] { "am", "at", "ma", "if", "fi" });
         // ma & am
@@ -111,7 +111,34 @@ public static class SetsAndMapsTester {
         // To display the pair correctly use something like:
         // Console.WriteLine($"{word} & {pair}");
         // Each pair of words should displayed on its own line.
+         var duplicates = new HashSet<string>();
+
+        foreach (var w in words)
+        {
+            // Check if the word is a symmetric pair in the set
+            if (w.Length == 2)
+            {
+                string pair = $"{w[1]}{w[0]}";
+
+                if (duplicates.Contains(pair))
+                {
+                    // Display the symmetric pair
+                    Console.WriteLine($"{w} & {pair}");
+                }
+                    
+                    duplicates.Add(w);
+                
+            }
+        }
     }
+        
+         
+        
+        
+        
+
+
+    
 
     /// <summary>
     /// Read a census file and summarize the degrees (education)
@@ -132,7 +159,15 @@ public static class SetsAndMapsTester {
         foreach (var line in File.ReadLines(filename)) {
             var fields = line.Split(",");
             // Todo Problem 2 - ADD YOUR CODE HERE
+            var degreName = fields[3];
+            var count = int.Parse(fields[4]);
+            if (degrees.ContainsKey(degreName))
+            degrees[degreName] += count;
+            else
+            degrees[degreName] = count;
         }
+
+       
 
         return degrees;
     }
@@ -157,8 +192,23 @@ public static class SetsAndMapsTester {
     /// # Problem 3 #
     /// #############
     private static bool IsAnagram(string word1, string word2) {
+
         // Todo Problem 3 - ADD YOUR CODE HERE
-        return false;
+        var anagram = new Dictionary<string, string>();
+            anagram.Add("row1",word1);
+            anagram.Add("row2", word2);
+           
+            
+
+            var firstRow = anagram[row1];
+            var secondRow = anagram[row2];
+            
+        if ( firstRow == secondRow)
+
+            return true;
+
+        else
+            return false;
     }
 
     /// <summary>
@@ -231,9 +281,13 @@ public static class SetsAndMapsTester {
 
         var featureCollection = JsonSerializer.Deserialize<FeatureCollection>(json, options);
 
+
         // TODO:
         // 1. Add code in FeatureCollection.cs to describe the JSON using classes and properties 
         // on those classes so that the call to Deserialize above works properly.
         // 2. Add code below to print out each place a earthquake has happened today and its magitude.
-    }
+      DateTime currentDate = DateTime.Today;
+        var today = currentDate.ToString("D");
+        Console.WriteLine(today);
 }
+    }

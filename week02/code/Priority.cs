@@ -1,4 +1,4 @@
-﻿public static class Priority {
+﻿﻿public static class Priority {
     public static void Test() {
         // TODO Problem 2 - Write and run test cases and fix the code to match requirements
         // Example of creating and using the priority queue
