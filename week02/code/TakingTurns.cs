@@ -15,8 +15,9 @@
         // Console.WriteLine(players);    // This can be un-commented out for debug help
         while (players.Length > 0)
             players.GetNextPerson();
-        // Defect(s) Found: 
-
+        /*Defect(s) Found: The "Enqueue" function was adding a persona at the front of the list and not at
+         the end. I Just change the Cero index for the variable "Lenght".
+        */
         Console.WriteLine("---------");
 
         // Test 2
@@ -38,8 +39,9 @@
         while (players.Length > 0)
             players.GetNextPerson();
 
-        // Defect(s) Found: 
-
+        /* Defect(s) Found: This Defect seems to be fixes with the change i made in the "enqueue" function.
+        The Enqueue method was trying to add the person to the front of the queue.
+        */
         Console.WriteLine("---------");
 
         // Test 3
@@ -56,8 +58,11 @@
             players.GetNextPerson();
             // Console.WriteLine(players);
         }
-        // Defect(s) Found: 
-
+        /* Defect(s) Found: Tim should have unlimited turns, but he was removed from the list permanently 
+         because the "dequeue" function removed people permantly when they had "0" turns.
+         So I created an if stament, so people that started with "0" turns could be added back to the
+         list.
+        */
         Console.WriteLine("---------");
 
          // Test 4
@@ -73,7 +78,11 @@
             players.GetNextPerson();
             // Console.WriteLine(players);
         }
-        // Defect(s) Found: 
+        /* Defect(s) Found: When i create the if stament in the Dequeue function (in the test 3) i just 
+        set the stament for persons that started with "0" turns, but in this test "Tim" had "-3" numbers of 
+        turns and the program needed to give infinite turns to people that started with "0 or less" number of 
+        turns, so i just change the "if stament" from "equal than 0" to "equal or less than 0"
+        */
 
         Console.WriteLine("---------");
 
