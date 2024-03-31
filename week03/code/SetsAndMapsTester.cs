@@ -194,21 +194,7 @@ public static class SetsAndMapsTester {
     private static bool IsAnagram(string word1, string word2) {
 
         // Todo Problem 3 - ADD YOUR CODE HERE
-        var anagram = new Dictionary<string, string>();
-            anagram.Add("row1",word1);
-            anagram.Add("row2", word2);
-           
-            
-
-            var firstRow = anagram[row1];
-            var secondRow = anagram[row2];
-            
-        if ( firstRow == secondRow)
-
-            return true;
-
-        else
-            return false;
+        return false;
     }
 
     /// <summary>
